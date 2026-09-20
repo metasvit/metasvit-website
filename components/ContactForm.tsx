@@ -102,6 +102,13 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Honeypot: off-screen rather than display:none, which some bots skip.
+          Real people never see or tab to it. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="website">Leave this field empty</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div>
         <label htmlFor="message" className="t-label-s mb-2 block text-ink-muted">
           The brief <span className="text-danger">*</span>
