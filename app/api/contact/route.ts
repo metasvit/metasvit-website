@@ -13,7 +13,7 @@ interface Brief {
   website?: string;
 }
 
-const TO = process.env.CONTACT_TO ?? "hello@metasvit.io";
+const TO = process.env.CONTACT_TO ?? "ruslan@metasvit.io";
 // Until a sending domain is verified in Resend, onboarding@resend.dev works but
 // may only deliver to the account owner's address.
 const FROM = process.env.CONTACT_FROM ?? "Metasvit site <onboarding@resend.dev>";

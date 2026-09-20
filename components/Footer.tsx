@@ -35,10 +35,10 @@ export default function Footer() {
             <span className="t-accent text-signal">runs itself.</span>
           </h2>
           <a
-            href="mailto:hello@metasvit.io"
+            href="mailto:ruslan@metasvit.io"
             className="mt-8 inline-flex items-center gap-3 text-[clamp(1.375rem,4vw,2.25rem)] font-semibold tracking-[-0.03em] text-ink transition-colors hover:text-violet-bright"
           >
-            hello@metasvit.io
+            ruslan@metasvit.io
             <IconArrowUpRight className="h-7 w-7 flex-none text-violet-bright" />
           </a>
           <p className="mt-6 max-w-md text-ink-muted">

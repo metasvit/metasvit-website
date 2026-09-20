@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const facts = [
-  { label: "Email", value: "hello@metasvit.io", href: "mailto:hello@metasvit.io" },
+  { label: "Email", value: "ruslan@metasvit.io", href: "mailto:ruslan@metasvit.io" },
   { label: "Engagement", value: "Fixed-fee discovery first" },
   { label: "Based in", value: "The Netherlands" },
   { label: "Reply time", value: "Two working days" },
