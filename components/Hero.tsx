@@ -1,43 +1,63 @@
-import Link from "next/link";
+import Button from "./ui/Button";
+import Eyebrow from "./ui/Eyebrow";
+import Core3D from "./Core3D";
+import { IconArrow } from "./ui/Icons";
+import { stats } from "@/lib/work";
 
 export default function Hero() {
   return (
-    <section className="hero-gradient relative flex min-h-screen items-center justify-center overflow-hidden px-6">
-      {/* Subtle grid overlay */}
+    <section className="relative overflow-hidden pb-24 pt-32 md:pb-32 md:pt-40">
+      <div className="pointer-events-none absolute inset-0 dot-grid" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute inset-0 opacity-5"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
+        className="pointer-events-none absolute -right-40 top-0 h-[560px] w-[560px] rounded-full bg-violet/10 blur-[140px]"
+        aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary-light">
-          Web 3.0 &amp; AI Solutions
-        </p>
-        <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-          Building the Future with{" "}
-          <span className="gradient-text">Blockchain &amp; AI Agents</span>
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted sm:text-xl">
-          We design and develop decentralized applications, smart contracts, and
-          autonomous AI agents that power the next generation of the internet.
-        </p>
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Link
-            href="/services"
-            className="rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-light"
-          >
-            Our Services
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full border border-white/20 px-8 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-primary hover:text-primary-light"
-          >
-            Get in Touch
-          </Link>
+      <div className="shell relative">
+        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
+          <div>
+            <Eyebrow live>Agents running in production</Eyebrow>
+
+            <h1 className="t-display-xl mt-6 text-ink">
+              Building{" "}
+              <span className="t-accent text-violet-bright">autonomous</span>{" "}
+              on-chain systems.
+            </h1>
+
+            <p className="t-body-l mt-7 max-w-[54ch] text-ink-muted">
+              Metasvit is a blockchain and AI-agent engineering studio in The
+              Netherlands. Smart contracts, autonomous agents, DeFi routing and
+              GameFi — shipped since 2021.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Button href="/contact" size="lg" icon={<IconArrow className="h-full w-full" />}>
+                Start a project
+              </Button>
+              <Button href="/work" size="lg" variant="secondary">
+                See the work
+              </Button>
+            </div>
+
+            <dl className="mt-16 grid max-w-xl grid-cols-3 gap-6 border-t border-line pt-8">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <dt className="t-label-s text-ink-muted">{s.label}</dt>
+                  <dd
+                    className={`t-numeric mt-2 text-[clamp(1.75rem,4vw,2.5rem)] ${
+                      "tone" in s && s.tone === "signal" ? "text-signal" : "text-ink"
+                    }`}
+                  >
+                    {s.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="relative mx-auto aspect-square w-full max-w-[520px] lg:mx-0">
+            <Core3D />
+          </div>
         </div>
       </div>
     </section>

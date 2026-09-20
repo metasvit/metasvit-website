@@ -1,34 +1,50 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const inter = Inter({
-  variable: "--font-geist-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  variable: "--font-mono-face",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const serif = Instrument_Serif({
+  variable: "--font-serif-face",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Metasvit — Web 3.0 & AI Agent Development",
+    default: "Metasvit — Blockchain and AI agent engineering",
     template: "%s | Metasvit",
   },
   description:
-    "Metasvit builds decentralized applications, smart contracts, and autonomous AI agents. Blockchain development company based in The Netherlands.",
+    "Metasvit is a blockchain and AI-agent engineering studio in The Netherlands. Smart contracts, autonomous agents, DeFi routing and GameFi — shipping since 2021.",
   keywords: [
     "blockchain development",
     "AI agents",
     "smart contracts",
     "Web3",
     "DeFi",
-    "NFT",
-    "decentralized applications",
+    "XRPL",
+    "Solidity",
+    "Netherlands",
   ],
   openGraph: {
-    title: "Metasvit — Web 3.0 & AI Agent Development",
+    title: "Metasvit — Blockchain and AI agent engineering",
     description:
-      "Building the future with blockchain and AI agents. Decentralized applications, smart contracts, and autonomous AI solutions.",
+      "Smart contracts, autonomous agents, DeFi routing and GameFi. Shipping since 2021, from The Netherlands.",
     url: "https://metasvit.io",
     siteName: "Metasvit",
     locale: "en_US",
@@ -36,23 +52,29 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Metasvit — Web 3.0 & AI Agent Development",
+    title: "Metasvit — Blockchain and AI agent engineering",
     description:
-      "Building the future with blockchain and AI agents.",
+      "Smart contracts, autonomous agents, DeFi routing and GameFi. Shipping since 2021.",
   },
   metadataBase: new URL("https://metasvit.io"),
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} antialiased`}>
+    <html lang="en">
+      <body
+        className={`${inter.variable} ${mono.variable} ${serif.variable} antialiased`}
+      >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-violet focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to content
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <Footer />
       </body>
     </html>

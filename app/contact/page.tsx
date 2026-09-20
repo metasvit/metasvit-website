@@ -1,93 +1,67 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import Eyebrow from "@/components/ui/Eyebrow";
+import { IconArrowUpRight } from "@/components/ui/Icons";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Metasvit. Tell us about your blockchain or AI project and we'll get back to you.",
+    "Tell Metasvit what you are building. We read every brief ourselves and reply within two working days.",
 };
+
+const facts = [
+  { label: "Email", value: "hello@metasvit.io", href: "mailto:hello@metasvit.io" },
+  { label: "Engagement", value: "Fixed-fee discovery first" },
+  { label: "Based in", value: "The Netherlands" },
+  { label: "Reply time", value: "Two working days" },
+];
 
 export default function ContactPage() {
   return (
-    <div className="px-6 pb-24 pt-32">
-      <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary-light">
-            Get in Touch
-          </p>
-          <h1 className="text-4xl font-bold sm:text-5xl">Contact Us</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
-            Have a project in mind? Drop us a message and we&apos;ll get back to
-            you within 24 hours.
-          </p>
-        </div>
+    <section className="relative overflow-hidden pb-24 pt-32 md:pb-32 md:pt-40">
+      <div className="pointer-events-none absolute inset-0 dot-grid" aria-hidden="true" />
+      <div className="shell relative">
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+          <div>
+            <Eyebrow>Contact</Eyebrow>
+            <h1 className="t-display-l mt-6 max-w-[14ch] text-ink">
+              Tell us what you are <span className="t-accent text-violet-bright">building.</span>
+            </h1>
+            <p className="t-body-l mt-7 text-ink-muted">
+              A few sentences is enough to start. Your brief goes straight to the
+              engineers who would run the project, so you get a technical
+              response rather than a sales call.
+            </p>
 
-        <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-5">
-          {/* Form */}
-          <div className="md:col-span-3">
-            <div className="rounded-2xl border border-white/10 bg-surface p-8">
-              <ContactForm />
-            </div>
+            <dl className="mt-12 flex flex-col divide-y divide-[var(--color-line)] border-y border-line">
+              {facts.map((f) => (
+                <div key={f.label} className="flex items-center justify-between gap-4 py-4">
+                  <dt className="t-label-s text-ink-faint">{f.label}</dt>
+                  <dd className="text-right">
+                    {f.href ? (
+                      <a
+                        href={f.href}
+                        target={f.href.startsWith("http") ? "_blank" : undefined}
+                        rel={f.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="inline-flex items-center gap-1.5 text-[15px] text-violet-bright transition-colors hover:text-signal"
+                      >
+                        {f.value}
+                        <IconArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    ) : (
+                      <span className="text-[15px] text-ink">{f.value}</span>
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          {/* Contact Info */}
-          <div className="md:col-span-2">
-            <div className="space-y-8">
-              <div className="rounded-2xl border border-white/10 bg-surface p-8">
-                <h3 className="mb-4 text-lg font-bold">Contact Info</h3>
-                <div className="space-y-4 text-sm text-muted">
-                  <div>
-                    <p className="mb-1 font-semibold text-foreground">Email</p>
-                    <a
-                      href="mailto:info@metasvit.io"
-                      className="transition-colors hover:text-primary-light"
-                    >
-                      info@metasvit.io
-                    </a>
-                  </div>
-                  <div>
-                    <p className="mb-1 font-semibold text-foreground">
-                      Location
-                    </p>
-                    <p>The Netherlands</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-surface p-8">
-                <h3 className="mb-4 text-lg font-bold">Follow Us</h3>
-                <div className="space-y-3 text-sm">
-                  <a
-                    href="https://github.com/metasvit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-muted transition-colors hover:text-primary-light"
-                  >
-                    GitHub →
-                  </a>
-                  <a
-                    href="https://x.com/metasvit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-muted transition-colors hover:text-primary-light"
-                  >
-                    X (Twitter) →
-                  </a>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-surface p-8">
-                <h3 className="mb-4 text-lg font-bold">Response Time</h3>
-                <p className="text-sm text-muted">
-                  We typically respond within 24 hours on business days. For
-                  urgent inquiries, please mention it in your message.
-                </p>
-              </div>
-            </div>
+          <div className="rounded-3xl border border-line bg-surface-100 p-6 sm:p-10">
+            <ContactForm />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

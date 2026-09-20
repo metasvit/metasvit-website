@@ -2,97 +2,108 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Logo from "./Logo";
+import Button from "./ui/Button";
 
-const navLinks = [
-  { href: "/", label: "Home" },
+const links = [
   { href: "/services", label: "Services" },
+  { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          <span className="gradient-text">Metasvit</span>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || open
+          ? "border-b border-line bg-canvas/85 backdrop-blur-xl"
+          : "border-b border-transparent"
+      }`}
+    >
+      <div className="shell flex h-18 items-center justify-between gap-6 py-4">
+        <Link href="/" aria-label="Metasvit home">
+          <Logo />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-primary-light ${
-                pathname === link.href ? "text-primary-light" : "text-muted"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
-          >
-            Get in Touch
-          </Link>
+        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className={`rounded-full px-4 py-2 text-[15px] transition-colors duration-150 ${
+                  active
+                    ? "text-ink"
+                    : "text-ink-muted hover:bg-surface-200 hover:text-ink"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="hidden md:block">
+          <Button href="/contact" size="sm">
+            Start a project
+          </Button>
         </div>
 
-        {/* Mobile hamburger */}
         <button
-          className="flex flex-col gap-1.5 md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-surface-200 hover:text-ink md:hidden"
         >
-          <span
-            className={`block h-0.5 w-6 bg-foreground transition-transform ${
-              mobileOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-foreground transition-opacity ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-foreground transition-transform ${
-              mobileOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
+            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}
+          </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-t border-white/10 bg-background/95 backdrop-blur-md md:hidden">
-          <div className="flex flex-col gap-4 px-6 py-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className={`text-base font-medium transition-colors hover:text-primary-light ${
-                  pathname === link.href ? "text-primary-light" : "text-muted"
-                }`}
-              >
-                {link.label}
-              </Link>
+      {open && (
+        <nav
+          id="mobile-nav"
+          aria-label="Main"
+          className="shell border-t border-line pb-6 pt-4 md:hidden"
+        >
+          <ul className="flex flex-col gap-1">
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={pathname === l.href ? "page" : undefined}
+                  className="block rounded-lg px-3 py-3 text-lg text-ink-muted transition-colors hover:bg-surface-200 hover:text-ink aria-[current=page]:text-ink"
+                >
+                  {l.label}
+                </Link>
+              </li>
             ))}
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 rounded-full bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-light"
-            >
-              Get in Touch
-            </Link>
+          </ul>
+          <div className="mt-4">
+            <Button href="/contact" onClick={() => setOpen(false)} className="w-full">
+              Start a project
+            </Button>
           </div>
-        </div>
+        </nav>
       )}
-    </nav>
+    </header>
   );
 }

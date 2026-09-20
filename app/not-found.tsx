@@ -1,21 +1,29 @@
-import Link from "next/link";
+import Button from "@/components/ui/Button";
+import Eyebrow from "@/components/ui/Eyebrow";
+import { IconArrow } from "@/components/ui/Icons";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-6 pt-20">
-      <div className="text-center">
-        <p className="text-6xl font-extrabold gradient-text">404</p>
-        <h1 className="mt-4 text-2xl font-bold">Page Not Found</h1>
-        <p className="mt-2 text-muted">
-          The page you&apos;re looking for doesn&apos;t exist.
+    <section className="relative flex min-h-[80vh] items-center overflow-hidden pt-24">
+      <div className="pointer-events-none absolute inset-0 dot-grid" aria-hidden="true" />
+      <div className="shell relative">
+        <Eyebrow>Error 404</Eyebrow>
+        <h1 className="t-display-xl mt-6 max-w-[14ch] text-ink">
+          That route <span className="t-accent text-violet-bright">reverted.</span>
+        </h1>
+        <p className="t-body-l mt-7 max-w-[46ch] text-ink-muted">
+          The page you asked for does not exist. Nothing was lost — try one of
+          these instead.
         </p>
-        <Link
-          href="/"
-          className="mt-8 inline-block rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
-        >
-          Back to Home
-        </Link>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Button href="/" icon={<IconArrow className="h-full w-full" />}>
+            Back home
+          </Button>
+          <Button href="/work" variant="secondary">
+            See the work
+          </Button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

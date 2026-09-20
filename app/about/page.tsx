@@ -1,161 +1,129 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Eyebrow from "@/components/ui/Eyebrow";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
+import { IconArrow } from "@/components/ui/Icons";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Metasvit — a blockchain and AI development company based in The Netherlands, building the future of Web 3.0.",
+    "Metasvit is a blockchain and AI-agent engineering studio in The Netherlands, building on-chain systems since December 2021.",
 };
 
-const values = [
+const principles = [
   {
-    icon: "🔒",
-    title: "Security First",
-    description:
-      "Every line of code we write is with security in mind. Smart contracts are audited, agents are sandboxed, and best practices are non-negotiable.",
+    title: "Security is a budget line, not a value",
+    body: "Every engagement prices audit preparation and remediation in from the start. A contract that has not been attacked in a test is a contract nobody has tested.",
   },
   {
-    icon: "⚡",
-    title: "Performance",
-    description:
-      "We optimize for speed and efficiency — gas-optimized contracts, low-latency agents, and scalable architectures.",
+    title: "Unattended is not unsupervised",
+    body: "Agents ship with a risk layer that can halt the loop, structured logs you can replay, and a kill switch a human can reach in one step. Autonomy without a brake is just an unmonitored process.",
   },
   {
-    icon: "🤝",
-    title: "Transparency",
-    description:
-      "Open communication, clear timelines, and honest assessments. We treat every project as a partnership.",
+    title: "We say when we disagree",
+    body: "If the architecture is wrong or the token model does not close, you hear it during discovery. Agreeing with a client into a failed launch helps nobody.",
   },
   {
-    icon: "🔬",
-    title: "Innovation",
-    description:
-      "We stay at the cutting edge of blockchain and AI technology, constantly exploring new frameworks, chains, and possibilities.",
+    title: "We only claim what we shipped",
+    body: "Every engagement on our work page reached production. We do not pad a portfolio with prototypes, pitches or projects that never left a testnet.",
   },
+];
+
+const timeline = [
+  { year: "2021", text: "Metasvit founded in The Netherlands. First repositories in December." },
+  { year: "2022", text: "First client programmes: NFT minting platforms, play-to-earn economies and DeFi derivatives interfaces." },
+  { year: "2023", text: "XRP Ledger work: wallet, KYC gateway, Unity WebGL clients with wallet authentication." },
+  { year: "2024", text: "DEX routing: a swap front end with our own smart order routing service behind it." },
+  { year: "2025 — now", text: "Autonomous agents on the Eliza framework, and the operational tooling around them." },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="px-6 pb-24 pt-32">
-      <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary-light">
-            Who We Are
-          </p>
-          <h1 className="text-4xl font-bold sm:text-5xl">About Metasvit</h1>
-        </div>
-
-        {/* Story */}
-        <section className="mx-auto mb-20 max-w-3xl">
-          <div className="rounded-2xl border border-white/10 bg-surface p-8 sm:p-12">
-            <h2 className="mb-6 text-2xl font-bold">Our Story</h2>
-            <div className="space-y-4 text-muted leading-relaxed">
-              <p>
-                Metasvit was founded with a clear mission: to bridge the gap
-                between cutting-edge blockchain technology and real-world
-                applications. Based in The Netherlands, we bring together a team
-                of experienced engineers, researchers, and strategists who are
-                passionate about decentralized technology and artificial
-                intelligence.
-              </p>
-              <p>
-                Since our inception, we&apos;ve delivered solutions across the
-                full Web3 stack — from smart contract development and DeFi
-                protocols to NFT platforms and enterprise blockchain networks.
-                With the rise of AI agents in the crypto space, we&apos;ve
-                expanded our expertise to build autonomous agents that can trade,
-                interact with protocols, and make intelligent on-chain decisions.
-              </p>
-              <p>
-                We believe the future belongs to autonomous, decentralized
-                systems. Our job is to build them — securely, efficiently, and at
-                scale.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Values */}
-        <section className="mb-20">
-          <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary-light">
-              What Drives Us
+    <>
+      <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
+        <div className="pointer-events-none absolute inset-0 dot-grid" aria-hidden="true" />
+        <div className="shell relative">
+          <Eyebrow>Who we are</Eyebrow>
+          <h1 className="t-display-xl mt-6 max-w-[17ch] text-ink">
+            An engineering partner for{" "}
+            <span className="t-accent text-violet-bright">production</span> systems.
+          </h1>
+          <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+            <p className="t-body-l text-ink-muted">
+              Metasvit is a blockchain and AI-agent engineering studio based in
+              The Netherlands. We started in December 2021 and have been shipping
+              continuously since — NFT drops and play-to-earn games first, then
+              XRP Ledger infrastructure, then DeFi routing, and now autonomous
+              agents.
             </p>
-            <h2 className="text-3xl font-bold">Our Values</h2>
+            <p className="t-body-l text-ink-muted">
+              We work as an extension of your team rather than a vendor at
+              arm&apos;s length: you talk directly to the engineers writing the
+              contracts, the person who scopes your project is the person who
+              delivers it, and the codebase is yours from the first commit.
+            </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="card-glow rounded-2xl border border-white/10 bg-surface p-6"
-              >
-                <div className="mb-3 text-3xl">{value.icon}</div>
-                <h3 className="mb-2 text-lg font-bold">{value.title}</h3>
-                <p className="text-sm text-muted">{value.description}</p>
-              </div>
+      {/* Principles */}
+      <section className="section">
+        <div className="shell">
+          <Reveal>
+            <Eyebrow>How we think</Eyebrow>
+            <h2 className="t-display-l mt-6 max-w-[16ch] text-ink">Four things we will not trade away.</h2>
+          </Reveal>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2">
+            {principles.map((p, i) => (
+              <Reveal key={p.title} delay={Math.min(i, 3) * 70}>
+                <div className="flex h-full flex-col rounded-2xl border border-line bg-surface-100 p-6 sm:p-8">
+                  <span className="t-label-s text-ink-faint">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-5 text-xl font-semibold tracking-[-0.02em] text-ink">
+                    {p.title}
+                  </h3>
+                  <p className="mt-4 leading-relaxed text-ink-muted">{p.body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </section>
-
-        {/* Approach */}
-        <section className="mx-auto mb-20 max-w-3xl">
-          <div className="rounded-2xl border border-white/10 bg-surface p-8 sm:p-12">
-            <h2 className="mb-6 text-2xl font-bold">Our Approach</h2>
-            <div className="space-y-6">
-              {[
-                {
-                  step: "01",
-                  title: "Discover",
-                  desc: "We dive deep into your requirements, business goals, and technical constraints to understand the full picture.",
-                },
-                {
-                  step: "02",
-                  title: "Design",
-                  desc: "Architecture and system design with security, scalability, and user experience at the core.",
-                },
-                {
-                  step: "03",
-                  title: "Develop",
-                  desc: "Iterative development with continuous testing, code reviews, and stakeholder feedback.",
-                },
-                {
-                  step: "04",
-                  title: "Deploy & Support",
-                  desc: "Secure deployment, monitoring setup, and ongoing support to ensure long-term success.",
-                },
-              ].map((item) => (
-                <div key={item.step} className="flex gap-4">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary-light">
-                    {item.step}
-                  </span>
-                  <div>
-                    <h3 className="font-bold">{item.title}</h3>
-                    <p className="text-sm text-muted">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <div className="text-center">
-          <h2 className="mb-4 text-2xl font-bold">
-            Let&apos;s Work Together
-          </h2>
-          <p className="mb-8 text-muted">
-            Have a project in mind? We&apos;d love to hear about it.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block rounded-full bg-primary px-10 py-4 text-base font-semibold text-white transition-colors hover:bg-primary-light"
-          >
-            Get in Touch
-          </Link>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="section border-t border-line bg-surface-100">
+        <div className="shell">
+          <Reveal>
+            <Eyebrow>Track record</Eyebrow>
+            <h2 className="t-display-l mt-6 max-w-[18ch] text-ink">Where the time went.</h2>
+          </Reveal>
+
+          <div className="mt-14">
+            {timeline.map((t, i) => (
+              <Reveal key={t.year} delay={Math.min(i, 4) * 55}>
+                <div className="grid grid-cols-[88px_minmax(0,1fr)] gap-6 border-t border-line py-6 md:grid-cols-[160px_minmax(0,1fr)]">
+                  <span
+                    className={`t-label pt-1 ${
+                      i === timeline.length - 1 ? "text-signal" : "text-ink-faint"
+                    }`}
+                  >
+                    {t.year}
+                  </span>
+                  <p className="max-w-[62ch] leading-relaxed text-ink-muted">{t.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-14 flex flex-wrap items-center gap-4">
+            <Button href="/work" icon={<IconArrow className="h-full w-full" />}>
+              See the projects
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
