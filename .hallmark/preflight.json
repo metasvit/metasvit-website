@@ -1,0 +1,22 @@
+{
+  "project": "MetaSvit",
+  "routes": [
+    "/",
+    "/services",
+    "/work",
+    "/about",
+    "/contact"
+  ],
+  "baseline": "6d6de47",
+  "brand": "app/globals.css:8-35 and components/Logo.tsx",
+  "preserve": [
+    "all routes and links",
+    "services and work data",
+    "contact form and /api/contact handler"
+  ],
+  "introduced": [
+    "Hallmark Console material with existing violet anchor",
+    "new compositions and global tokens"
+  ],
+  "facts": "Existing lib/services.ts and lib/work.ts; no new claims."
+}

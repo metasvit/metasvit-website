@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Hallmark verification captures and dependency-local artifacts
+.hallmark/shots/
+.hallmark/before/
+.hallmark/before.json
+.hallmark/before.txt
+.hallmark/compare.html

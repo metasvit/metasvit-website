@@ -1,0 +1,39 @@
+[
+  {
+    "mode": "redesign",
+    "depth": "full",
+    "scope": "site",
+    "shape": "Long Document",
+    "theme": "console",
+    "hero": "Index",
+    "nav": "slab",
+    "footer": "statement",
+    "imagery": "none",
+    "photos": [],
+    "signature": "Named shipped projects replace the decorative orb",
+    "sections": [
+      "Project index hero",
+      "Service rows",
+      "Illustrative agent log",
+      "Case rows",
+      "Process",
+      "Contact footer"
+    ],
+    "prompt": "MetaSvit engineering studio redesign with preserved brand and functional contact form",
+    "date": "2026-10-23",
+    "axes": [
+      "dark",
+      "grotesk-sans",
+      "cool"
+    ],
+    "entry": "Real shipped programme index",
+    "fingerprint": {
+      "hero": "split project index",
+      "first": "service rows",
+      "rhythm": "paper / raised code log / paper case rows",
+      "nav": "slab",
+      "footer": "statement"
+    },
+    "outcome": "Floor 0 FAIL; Reflex 0 unresolved (59,77,44c waived); hero review ship; finish review ship"
+  }
+]

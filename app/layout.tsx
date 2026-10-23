@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
+import { Inter, JetBrains_Mono, Host_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,13 +16,7 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const serif = Instrument_Serif({
-  variable: "--font-serif-face",
-  subsets: ["latin"],
-  weight: "400",
-  style: "italic",
-  display: "swap",
-});
+const host = Host_Grotesk({variable:"--font-host",subsets:["latin"],weight:["400","500"],display:"swap"});
 
 export const metadata: Metadata = {
   title: {
@@ -65,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${mono.variable} ${serif.variable} antialiased`}
+        className={`${inter.variable} ${mono.variable} ${host.variable} antialiased`}
       >
         <a
           href="#main"
