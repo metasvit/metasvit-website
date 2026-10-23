@@ -5,8 +5,7 @@ import Button from "./ui/Button";
 import { IconArrow } from "./ui/Icons";
 import { services } from "@/lib/services";
 
-const field =
-  "w-full rounded-[10px] border border-line bg-surface-200 px-4 py-3 text-ink placeholder:text-ink-faint outline-none transition-[border-color,box-shadow] duration-150 focus:border-violet focus:shadow-[var(--shadow-glow-violet)]";
+const field = "field";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -42,9 +41,9 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-line bg-surface-100 p-8 text-center">
-        <span className="t-label inline-flex items-center gap-2 text-success">
-          <span className="h-[7px] w-[7px] rounded-full bg-success" />
+      <div className="form-status">
+        <span role="status" className="t-label inline-flex items-center gap-2 text-success">
+
           Brief received
         </span>
         <h2 className="t-display-m mt-5 text-ink">Thanks — that&apos;s enough to start.</h2>
@@ -67,13 +66,13 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate={false}>
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="t-label-s mb-2 block text-ink-muted">
+          <label htmlFor="name" className="form-label">
             Name <span className="text-danger">*</span>
           </label>
           <input id="name" name="name" required autoComplete="name" className={field} placeholder="Jane Doe" />
         </div>
         <div>
-          <label htmlFor="email" className="t-label-s mb-2 block text-ink-muted">
+          <label htmlFor="email" className="form-label">
             Email <span className="text-danger">*</span>
           </label>
           <input id="email" name="email" type="email" required autoComplete="email" className={field} placeholder="jane@company.com" />
@@ -82,13 +81,13 @@ export default function ContactForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="company" className="t-label-s mb-2 block text-ink-muted">
+          <label htmlFor="company" className="form-label">
             Company or project
           </label>
           <input id="company" name="company" autoComplete="organization" className={field} placeholder="Optional" />
         </div>
         <div>
-          <label htmlFor="scope" className="t-label-s mb-2 block text-ink-muted">
+          <label htmlFor="scope" className="form-label">
             What do you need?
           </label>
           <select id="scope" name="scope" className={field} defaultValue="">
@@ -110,7 +109,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="t-label-s mb-2 block text-ink-muted">
+        <label htmlFor="message" className="form-label">
           The brief <span className="text-danger">*</span>
         </label>
         <textarea
@@ -127,7 +126,7 @@ export default function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p role="alert" className="rounded-[10px] border border-danger/40 bg-danger/10 px-4 py-3 text-sm text-danger">
+        <p role="alert" className="form-error">
           {error}
         </p>
       )}
