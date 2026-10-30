@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Host_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { organizationGraph, siteDescription, siteUrl } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,38 +20,28 @@ const mono = JetBrains_Mono({
 const host = Host_Grotesk({variable:"--font-host",subsets:["latin"],weight:["400","500"],display:"swap"});
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Metasvit — Blockchain and AI agent engineering",
+    default: "Metasvit | Blockchain & AI Agent Development",
     template: "%s | Metasvit",
   },
-  description:
-    "Metasvit is a blockchain and AI-agent engineering studio in The Netherlands. Smart contracts, autonomous agents, DeFi routing and GameFi — shipping since 2021.",
-  keywords: [
-    "blockchain development",
-    "AI agents",
-    "smart contracts",
-    "Web3",
-    "DeFi",
-    "XRPL",
-    "Solidity",
-    "Netherlands",
-  ],
+  description: siteDescription,
+  alternates: { canonical: siteUrl },
   openGraph: {
-    title: "Metasvit — Blockchain and AI agent engineering",
-    description:
-      "Smart contracts, autonomous agents, DeFi routing and GameFi. Shipping since 2021, from The Netherlands.",
-    url: "https://metasvit.io",
+    title: "Metasvit | Blockchain & AI Agent Development",
+    description: siteDescription,
+    url: siteUrl,
     siteName: "Metasvit",
     locale: "en_US",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Metasvit — blockchain and AI agent engineering" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Metasvit — Blockchain and AI agent engineering",
-    description:
-      "Smart contracts, autonomous agents, DeFi routing and GameFi. Shipping since 2021.",
+    title: "Metasvit | Blockchain & AI Agent Development",
+    description: siteDescription,
+    images: ["/opengraph-image"],
   },
-  metadataBase: new URL("https://metasvit.io"),
 };
 
 export default function RootLayout({
@@ -67,6 +58,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationGraph).replace(/</g, "\\u003c") }} />
         <Navbar />
         <main id="main">{children}</main>
         <Footer />

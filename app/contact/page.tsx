@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ContactForm from "@/components/ContactForm";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Tell Metasvit what you are building. We read every brief ourselves and reply within two working days.",
-};
+export const metadata = pageMetadata("/contact", "Start a Blockchain or AI Project", "Tell Metasvit what you are building. We read every brief ourselves and reply within two working days.");
 
 const facts = [
   { label: "Email", value: "ruslan@metasvit.io", href: "mailto:ruslan@metasvit.io" },

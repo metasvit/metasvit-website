@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [{ source: "/:path*", has: [{ type: "host", value: "www.metasvit.io" }], destination: "https://metasvit.io/:path*", permanent: true }];
+  },
 };
 
 export default nextConfig;
