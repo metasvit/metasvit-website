@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Button from "@/components/ui/Button";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Metasvit is a blockchain and AI-agent engineering studio in The Netherlands, building on-chain systems since December 2021.",
-};
+export const metadata = pageMetadata("/about", "About Our Engineering Studio", "Metasvit is a blockchain and AI-agent engineering studio in The Netherlands, building on-chain systems since December 2021.");
 
 const principles = [
   {

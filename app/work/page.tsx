@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Button from "@/components/ui/Button";
 import WorkCard from "@/components/WorkCard";
 import { IconArrow } from "@/components/ui/Icons";
 import { work, stats } from "@/lib/work";
 
-export const metadata: Metadata = {
-  title: "Work",
-  description:
-    "Selected Metasvit projects: XRPL wallets and KYC gateways, Unity GameFi clients, DEX routing engines, NFT minting dApps and autonomous agents.",
-};
+export const metadata = pageMetadata("/work", "Blockchain & AI Projects", "Selected Metasvit projects: XRPL wallets and KYC gateways, Unity GameFi clients, DEX routing engines, NFT minting dApps and autonomous agents.");
 
 export default function WorkPage() {
   return (

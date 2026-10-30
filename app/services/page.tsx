@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Button from "@/components/ui/Button";
 import { services } from "@/lib/services";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "AI agents, smart contracts, DeFi routing, GameFi, NFT and enterprise blockchain engineering — what each engagement includes.",
-};
+export const metadata = pageMetadata("/services", "Blockchain & AI Agent Development Services", "AI agents, smart contracts, DeFi routing, GameFi, NFT and enterprise blockchain engineering \u2014 what each engagement includes.");
 
 export default function ServicesPage() {
   return (
