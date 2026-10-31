@@ -22,23 +22,23 @@ const host = Host_Grotesk({variable:"--font-host",subsets:["latin"],weight:["400
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Metasvit | Blockchain & AI Agent Development",
+    default: "MetaSvit | AI Transformation & Forward-Deployed Engineers",
     template: "%s | Metasvit",
   },
   description: siteDescription,
   alternates: { canonical: siteUrl },
   openGraph: {
-    title: "Metasvit | Blockchain & AI Agent Development",
+    title: "MetaSvit | AI Transformation & Forward-Deployed Engineers",
     description: siteDescription,
     url: siteUrl,
     siteName: "Metasvit",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Metasvit — blockchain and AI agent engineering" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "MetaSvit — AI transformation and forward-deployed engineering" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Metasvit | Blockchain & AI Agent Development",
+    title: "MetaSvit | AI Transformation & Forward-Deployed Engineers",
     description: siteDescription,
     images: ["/opengraph-image"],
   },

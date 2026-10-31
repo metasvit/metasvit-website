@@ -4,7 +4,7 @@ import WorkCard from "@/components/WorkCard";
 import { IconArrow } from "@/components/ui/Icons";
 import { work, stats } from "@/lib/work";
 
-export const metadata = pageMetadata("/work", "Blockchain & AI Projects", "Selected Metasvit projects: XRPL wallets and KYC gateways, Unity GameFi clients, DEX routing engines, NFT minting dApps and autonomous agents.");
+export const metadata = pageMetadata("/work", "Production Engineering Track Record", "Selected Metasvit projects: XRPL wallets and KYC gateways, Unity GameFi clients, DEX routing engines, NFT minting dApps and autonomous agents.");
 
 export default function WorkPage() {
   return (
@@ -13,9 +13,7 @@ export default function WorkPage() {
         <div className="shell page-overview">
           <h1 className="page-title">Selected work</h1>
           <p className="page-lead">
-            Long-running engagements across XRP Ledger infrastructure, GameFi,
-            DeFi routing and autonomous agents, scoped, built, shipped and
-            handed over.
+            Production work across XRP Ledger infrastructure, GameFi, DeFi routing and autonomous agents. This is the engineering foundation we bring to our AI transformation practice.
           </p>
         </div>
       </section>

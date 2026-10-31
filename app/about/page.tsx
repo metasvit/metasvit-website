@@ -1,24 +1,24 @@
 import { pageMetadata } from "@/lib/seo";
 import Button from "@/components/ui/Button";
 
-export const metadata = pageMetadata("/about", "About Our Engineering Studio", "Metasvit is a blockchain and AI-agent engineering studio in The Netherlands, building on-chain systems since December 2021.");
+export const metadata = pageMetadata("/about", "Senior Engineers for AI Transformation", "Meet MetaSvit: senior engineering, architecture and delivery specialists helping businesses adopt AI through embedded forward-deployed engineering.");
 
 const principles = [
   {
-    title: "Security is a budget line, not a value",
-    body: "Every engagement prices audit preparation and remediation in from the start. A contract that has not been attacked in a test is a contract nobody has tested.",
+    title: "Design for the real operating environment",
+    body: "Understand data access, permissions, failure modes and the cost of operating the system before rollout. Agree the reviews and recovery path with the people accountable for the work.",
   },
   {
-    title: "Unattended is not unsupervised",
-    body: "Agents ship with a risk layer that can halt the loop, structured logs you can replay, and a kill switch a human can reach in one step. Autonomy without a brake is just an unmonitored process.",
+    title: "Give autonomy clear boundaries",
+    body: "Define what an agent can do, which decisions need a person, and how to stop or recover the workflow. Use evaluations and operating evidence to decide when more autonomy is useful.",
   },
   {
     title: "We say when we disagree",
-    body: "If the architecture is wrong or the token model does not close, you hear it during discovery. Agreeing with a client into a failed launch helps nobody.",
+    body: "If the data is not ready, the workflow has no owner or the economics do not justify AI, you hear it during discovery. A useful recommendation can be to simplify the process first.",
   },
   {
-    title: "We only claim what we shipped",
-    body: "Every engagement on our work page reached production. We do not pad a portfolio with prototypes, pitches or projects that never left a testnet.",
+    title: "Build capability in your team",
+    body: "Work in a shared repository, make decisions visible and teach people how to operate what is delivered. A successful engagement leaves your business more capable.",
   },
 ];
 
@@ -27,7 +27,8 @@ const timeline = [
   { year: "2022", text: "First client programmes: NFT minting platforms, play-to-earn economies and DeFi derivatives interfaces." },
   { year: "2023", text: "XRP Ledger work: wallet, KYC gateway, Unity WebGL clients with wallet authentication." },
   { year: "2024", text: "DEX routing: a swap front end with our own smart order routing service behind it." },
-  { year: "2025 — now", text: "Autonomous agents on the Eliza framework, and the operational tooling around them." },
+  { year: "2025", text: "Autonomous agents on the Eliza framework, and the operational tooling around them." },
+  { year: "2026", text: "A broader focus on business AI transformation through forward-deployed engineering, integration and team enablement." },
 ];
 
 export default function AboutPage() {
@@ -36,11 +37,10 @@ export default function AboutPage() {
       <section className="page-intro">
         <div className="shell">
           <h1 className="page-title">
-            An engineering partner for production systems.
+            Senior experience. Embedded in your team.
           </h1>
           <p className="page-lead">
-            Metasvit is a blockchain and AI-agent engineering studio based in
-            The Netherlands.
+            MetaSvit is an AI transformation and forward-deployed engineering company based in The Netherlands.
           </p>
         </div>
       </section>
@@ -50,18 +50,13 @@ export default function AboutPage() {
           <h2 className="section-title" id="studio-heading">Who we are</h2>
           <div className="page-overview">
             <p>
-              We started in December 2021 and have been shipping continuously
-              since, NFT drops and play-to-earn games first, then
-              XRP Ledger infrastructure, then DeFi routing, and now autonomous
-              agents.
+              Our senior specialists bring 20+ years of experience in software development, architecture and project management. Individual team members’ experience includes work at Amazon and Miro, and across banking and European enterprises.
             </p>
             <p>
-              We work as an extension of your team rather than a vendor at
-              arm&apos;s length: you talk directly to the engineers writing the
-              contracts, the person who scopes your project is the person who
-              delivers it, and the codebase is yours from the first commit.
+              We combine that experience with MetaSvit’s production engineering history since 2021. Today, we work alongside your business and technical owners to take AI from an idea to a workflow people use, and help your team build on it.
             </p>
           </div>
+          <p className="team-experience-note">Amazon, Miro and sector references describe individual team members’ experience, rather than MetaSvit client relationships or endorsements.</p>
         </div>
       </section>
 
@@ -84,7 +79,7 @@ export default function AboutPage() {
       <section className="content-section" aria-labelledby="timeline-heading">
         <div className="shell">
           <h2 className="section-title" id="timeline-heading">Track record</h2>
-          <p className="section-lead">Where the time went.</p>
+          <p className="section-lead">From production engineering to business AI transformation.</p>
 
           <ol className="timeline-list">
             {timeline.map((entry) => (
