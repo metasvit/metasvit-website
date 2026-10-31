@@ -118,10 +118,10 @@ export default function ContactForm() {
           required
           rows={6}
           className={`${field} resize-y`}
-          placeholder="What are you building, what already exists, and what does done look like?"
+          placeholder="Which workflow would you improve, which systems are involved, and how would you measure success?"
         />
         <p className="mt-2 text-sm text-ink-faint">
-          Chains, deadlines and constraints are more useful to us than a polished pitch.
+          Your current process, tools and constraints give us a useful place to start.
         </p>
       </div>
 

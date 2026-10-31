@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## AI transformation positioning
+
+The site now leads with AI transformation through forward-deployed engineering. The dedicated delivery page is `/forward-deployed-engineering`; existing service anchors and the production portfolio remain available.
+
+- [Positioning and primary-source research](strategy/AI-TRANSFORMATION.md)
+- [Four-week launch plan](marketing/LAUNCH-CAMPAIGN.md)
+- [LinkedIn and X drafts](marketing/POSTS.md) — prepared copy, not published or scheduled
+- [SEO operating notes](SEO-MANAGEMENT.md)

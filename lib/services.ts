@@ -11,7 +11,7 @@ export interface Service {
   deliverables: string[];
 }
 
-export const services: Service[] = [
+export const engineeringServices: Service[] = [
   {
     slug: "ai-agents",
     icon: "agent",
@@ -132,6 +132,39 @@ export const services: Service[] = [
     ],
   },
 ];
+
+export const transformationServices: Service[] = [
+  {
+    slug: "ai-transformation", icon: "enterprise", title: "AI transformation & discovery",
+    description: "Find where AI can improve your business, with a workflow, baseline and delivery plan you can act on.",
+    details: "We work with your business and technical owners to understand how work happens today. We identify the useful opportunities, the data and integration constraints, and the operating changes needed to make the first deployment stick.",
+    tags: ["Workflow mapping", "Architecture", "Delivery planning"],
+    deliverables: ["Prioritised workflow opportunities", "Baseline for time, quality and cost", "Data and systems readiness review", "Architecture and implementation plan", "Scoped first deployment with go/no-go criteria"],
+  },
+  {
+    slug: "forward-deployed-engineering", icon: "contract", title: "Forward-deployed engineering",
+    description: "Senior engineers embedded with your team, accountable for taking a business workflow into production.",
+    details: "Our engineers work directly with the people who own and use the process. Architecture, implementation and delivery stay in the same loop, from the first prototype through integrations, rollout and adoption. We agree the team and engagement around the work.",
+    tags: ["Embedded delivery", "Shared repository", "Production rollout"],
+    deliverables: ["Technical lead and an agreed delivery team", "Working prototype built with domain experts", "Reviewed integrations and production code", "Shared backlog, demos and acceptance criteria", "Rollout, handover and adoption support"],
+  },
+  {
+    slug: "ai-agents", icon: "agent", title: "AI agents & systems integration",
+    description: "Connect agents to your knowledge, tools and workflows, with clear limits on what they can do.",
+    details: "Build assistants and agents around real business processes: finding information, preparing work, coordinating tasks and acting through approved tools. We design the context, integrations, evaluation cases and human checkpoints together with your team.",
+    tags: ["Knowledge retrieval", "Tool integration", "Evaluations"],
+    deliverables: ["Workflow-specific agents and assistants", "Knowledge and business-system integrations", "Permission boundaries and human approvals", "Representative evaluations and failure handling", "Decision traces and operational dashboards"],
+  },
+  {
+    slug: "ai-platforms", icon: "chain", title: "AI platforms, operations & enablement",
+    description: "The deployment foundations and team practices that let useful AI systems keep improving.",
+    details: "Put deployments, evaluations, observability and operating ownership on a repeatable footing. Compare model options against your workload and constraints, make running costs visible, and teach your people how to operate and extend the systems they own.",
+    tags: ["Cloud infrastructure", "Monitoring", "Team training"],
+    deliverables: ["Deployment and evaluation pipelines", "Monitoring, cost controls and recovery plans", "Model and platform selection against your constraints", "Access and data-handling architecture", "Technical runbooks and team enablement"],
+  },
+];
+
+export const services = [...transformationServices, ...engineeringServices.filter(service => service.slug !== "ai-agents")];
 
 export function getService(slug: string) {
   return services.find((s) => s.slug === slug);
