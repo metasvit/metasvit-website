@@ -44,3 +44,16 @@ The site now leads with AI transformation through forward-deployed engineering. 
 - [Four-week launch plan](marketing/LAUNCH-CAMPAIGN.md)
 - [LinkedIn and X drafts](marketing/POSTS.md) — prepared copy, not published or scheduled
 - [SEO operating notes](SEO-MANAGEMENT.md)
+
+## Workflow sprint offer and demo
+
+- `/ai-workflow-sprint`: customer-facing offer copy, subject to release review.
+- `/workflow-demo`: interactive customer-operations walkthrough. Fixed synthetic
+  fixtures, no AI inference, external calls, persistence or real business actions.
+  Intentionally excluded from indexing and the sitemap.
+
+Run `npm run dev -- --port 4186` to review both routes locally. The demo needs no
+environment variables. Test all three scenarios: approval requires a reviewer
+check, editing clears that check, exceptions block approval, and reset clears the
+run. The UI controls illustrate an approval process; a production integration
+requires server-side authorisation, evaluations, persistence and recovery.
