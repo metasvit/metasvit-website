@@ -18,7 +18,7 @@ export default function ForwardDeployedEngineeringPage() {
     <section className="page-intro"><div className="shell">
       <h1 className="page-title">Engineers inside your business.</h1>
       <p className="page-lead">Forward-deployed engineering brings business understanding and hands-on delivery into one team. We embed with yours to turn AI opportunities into working systems and lasting capability.</p>
-      <div className="content-actions"><Button href="/ai-workflow-sprint">Start with a workflow sprint</Button><Button href="/workflow-demo" variant="secondary">Try the operations demo</Button></div>
+      <div className="content-actions flex flex-wrap gap-3"><Button href="/ai-workflow-sprint">Start with a workflow sprint</Button><Button href="/workflow-demo" variant="secondary">Try the operations demo</Button></div>
     </div></section>
     <section className="content-section" aria-labelledby="fit-heading"><div className="shell">
       <div className="section-heading"><h2 className="section-title" id="fit-heading">Built around the work.</h2><p>For business and technology leaders who have access to AI tools and need help making them useful in daily operations.</p></div>

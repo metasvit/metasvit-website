@@ -14,7 +14,7 @@ export default function WorkflowSprintPage() {
     <section className="page-intro"><div className="shell">
       <h1 className="page-title">Your first useful AI workflow.</h1>
       <p className="page-lead">Ten working days to turn one repeated process into a tested prototype and a clear production decision.</p>
-      <div className="content-actions"><Button href="/contact">Discuss a workflow sprint</Button><Button href="/workflow-demo" variant="secondary">Try the operations demo</Button></div>
+      <div className="content-actions flex flex-wrap gap-3"><Button href="/contact">Discuss a workflow sprint</Button><Button href="/workflow-demo" variant="secondary">Try the operations demo</Button></div>
     </div></section>
     <section className="content-section"><div className="shell">
       <div className="section-heading"><h2 className="section-title">Start with work you can describe.</h2><p>For operations leaders with a repeated task, an available business owner and access to representative examples. Customer-operations requests are one useful starting point.</p></div>
@@ -37,7 +37,7 @@ export default function WorkflowSprintPage() {
         <article className="principle-entry"><h3>How do we price it?</h3><p>We agree a fixed fee and written scope before work starts. Model and third-party costs, ownership and delivery conditions are stated in the proposal.</p></article>
         <article className="principle-entry"><h3>What happens after ten days?</h3><p>You receive the work and a recommendation. A production pilot proceeds only with an agreed owner, integration scope, acceptance criteria and budget. If the workflow is a poor fit, the findings should say so.</p></article>
       </div>
-      <div className="content-actions"><Button href="/contact">Bring one workflow</Button><Button href="/forward-deployed-engineering" variant="secondary">How we deliver</Button></div>
+      <div className="content-actions flex flex-wrap gap-3"><Button href="/contact">Bring one workflow</Button><Button href="/forward-deployed-engineering" variant="secondary">How we deliver</Button></div>
     </div></section>
   </>;
 }

@@ -22,7 +22,7 @@ export default function WorkflowDemoPage() {
         <article className="principle-entry"><h3>Test the difficult requests</h3><p>Evaluate missing references, mismatched accounts, outdated records and policy exceptions. Measure corrections and review effort alongside completed tasks.</p></article>
         <article className="principle-entry"><h3>Agree the operating boundary</h3><p>Name an owner, define permissions, record actions and test recovery. Sending replies or changing orders needs separate, explicitly scoped integration work.</p></article>
       </div>
-      <div className="content-actions"><Button href="/ai-workflow-sprint">Explore the workflow sprint</Button><Button href="/contact" variant="secondary">Bring your workflow</Button></div>
+      <div className="content-actions flex flex-wrap gap-3"><Button href="/ai-workflow-sprint">Explore the workflow sprint</Button><Button href="/contact" variant="secondary">Bring your workflow</Button></div>
     </div></section>
   </>;
 }
