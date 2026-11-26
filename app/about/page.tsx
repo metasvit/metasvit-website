@@ -1,7 +1,8 @@
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbGraph, pageMetadata, sitePages } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import Button from "@/components/ui/Button";
 
-export const metadata = pageMetadata("/about", "Senior Engineers for AI Transformation", "Meet MetaSvit: senior engineering, architecture and delivery specialists helping businesses adopt AI through embedded forward-deployed engineering.");
+export const metadata = pageMetadata(sitePages.about);
 
 const principles = [
   {
@@ -34,6 +35,7 @@ const timeline = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={[breadcrumbGraph(sitePages.about)]} />
       <section className="page-intro">
         <div className="shell">
           <h1 className="page-title">

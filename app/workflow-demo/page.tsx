@@ -1,9 +1,9 @@
 import Button from "@/components/ui/Button";
 import WorkflowDemo from "@/components/WorkflowDemo";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, sitePages } from "@/lib/seo";
 
 export const metadata = {
-  ...pageMetadata("/workflow-demo", "Customer Operations Workflow Demo", "Explore a synthetic order-support workflow: check source data, review a proposed reply and approve or escalate. A MetaSvit delivery walkthrough."),
+  ...pageMetadata(sitePages.workflowDemo),
   robots: { index: false, follow: true },
 };
 

@@ -1,7 +1,8 @@
 import Button from "@/components/ui/Button";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbGraph, pageMetadata, sitePages, faqGraph, serviceGraph } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
-export const metadata = pageMetadata("/ai-workflow-sprint", "AI Workflow Sprint", "A ten-working-day engagement to map one business workflow, build a bounded prototype and agree an evidence-based production plan with MetaSvit.");
+export const metadata = pageMetadata(sitePages.aiWorkflowSprint);
 
 const outputs = [
   ["A workflow and baseline", "Map the current task, systems, exceptions and owner. Agree the measures: handling time, output quality, review effort and operating cost."],
@@ -9,8 +10,16 @@ const outputs = [
   ["A build decision", "Deliver the findings, prototype code, evaluation results, integration plan and a separately costed production proposal. Stop, revise or move to a pilot."],
 ];
 
+const questions = [
+  { title: "What do we need from you?", body: "A business owner, a technical contact, operator feedback and representative examples you are authorised to share. Agree data handling and environment access before any transfer." },
+  { title: "What fits in the sprint?", body: "One workflow, one operating team, approved sample data and one prototype environment. Live write integrations, full migration, round-the-clock support and a company-wide rollout require separate scope." },
+  { title: "How do we price it?", body: "We agree a fixed fee and written scope before work starts. Model and third-party costs, ownership and delivery conditions are stated in the proposal." },
+  { title: "What happens after ten days?", body: "You receive the work and a recommendation. A production pilot proceeds only with an agreed owner, integration scope, acceptance criteria and budget. If the workflow is a poor fit, the findings should say so." },
+];
+
 export default function WorkflowSprintPage() {
   return <>
+    <JsonLd data={[breadcrumbGraph(sitePages.aiWorkflowSprint), serviceGraph(sitePages.aiWorkflowSprint, "AI workflow prototype and production plan"), faqGraph(sitePages.aiWorkflowSprint, questions)]} />
     <section className="page-intro"><div className="shell">
       <h1 className="page-title">Your first useful AI workflow.</h1>
       <p className="page-lead">Ten working days to turn one repeated process into a tested prototype and a clear production decision.</p>
@@ -32,10 +41,7 @@ export default function WorkflowSprintPage() {
     <section className="content-section"><div className="shell">
       <h2 className="section-title">Before we start.</h2>
       <div className="principle-list">
-        <article className="principle-entry"><h3>What do we need from you?</h3><p>A business owner, a technical contact, operator feedback and representative examples you are authorised to share. Agree data handling and environment access before any transfer.</p></article>
-        <article className="principle-entry"><h3>What fits in the sprint?</h3><p>One workflow, one operating team, approved sample data and one prototype environment. Live write integrations, full migration, round-the-clock support and a company-wide rollout require separate scope.</p></article>
-        <article className="principle-entry"><h3>How do we price it?</h3><p>We agree a fixed fee and written scope before work starts. Model and third-party costs, ownership and delivery conditions are stated in the proposal.</p></article>
-        <article className="principle-entry"><h3>What happens after ten days?</h3><p>You receive the work and a recommendation. A production pilot proceeds only with an agreed owner, integration scope, acceptance criteria and budget. If the workflow is a poor fit, the findings should say so.</p></article>
+        {questions.map(question => <article className="principle-entry" key={question.title}><h3>{question.title}</h3><p>{question.body}</p></article>)}
       </div>
       <div className="content-actions flex flex-wrap gap-3"><Button href="/contact">Bring one workflow</Button><Button href="/forward-deployed-engineering" variant="secondary">How we deliver</Button></div>
     </div></section>

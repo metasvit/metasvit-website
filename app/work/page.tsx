@@ -1,14 +1,16 @@
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbGraph, pageMetadata, sitePages } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import Button from "@/components/ui/Button";
 import WorkCard from "@/components/WorkCard";
 import { IconArrow } from "@/components/ui/Icons";
 import { work, stats } from "@/lib/work";
 
-export const metadata = pageMetadata("/work", "Production Engineering Track Record", "Selected Metasvit projects: XRPL wallets and KYC gateways, Unity GameFi clients, DEX routing engines, NFT minting dApps and autonomous agents.");
+export const metadata = pageMetadata(sitePages.work);
 
 export default function WorkPage() {
   return (
     <>
+      <JsonLd data={[breadcrumbGraph(sitePages.work)]} />
       <section className="page-intro">
         <div className="shell page-overview">
           <h1 className="page-title">Selected work</h1>

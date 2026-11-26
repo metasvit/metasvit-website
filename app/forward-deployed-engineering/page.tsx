@@ -1,8 +1,9 @@
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbGraph, pageMetadata, sitePages, faqGraph, serviceGraph } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import Button from "@/components/ui/Button";
 import { deliverySteps, outcomeMeasures } from "@/lib/transformation";
 
-export const metadata = pageMetadata("/forward-deployed-engineering", "Forward-Deployed Engineers for AI Transformation", "MetaSvit embeds senior engineers with your team to discover valuable workflows, build AI integrations, deploy into production and develop your own AI capability.");
+export const metadata = pageMetadata(sitePages.forwardDeployedEngineering);
 
 const questions = [
   { title: "What is a forward-deployed engineer?", body: "An engineer who works closely with your business and technical teams to solve an operational problem. They understand the workflow, build the software and integrations, and help get it into everyday use. At MetaSvit, this is our delivery model for AI transformation." },
@@ -15,6 +16,7 @@ const questions = [
 
 export default function ForwardDeployedEngineeringPage() {
   return <>
+    <JsonLd data={[breadcrumbGraph(sitePages.forwardDeployedEngineering), serviceGraph(sitePages.forwardDeployedEngineering, "Forward-deployed engineering"), faqGraph(sitePages.forwardDeployedEngineering, questions)]} />
     <section className="page-intro"><div className="shell">
       <h1 className="page-title">Engineers inside your business.</h1>
       <p className="page-lead">Forward-deployed engineering brings business understanding and hands-on delivery into one team. We embed with yours to turn AI opportunities into working systems and lasting capability.</p>
