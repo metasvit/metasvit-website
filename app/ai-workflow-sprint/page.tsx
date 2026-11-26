@@ -13,16 +13,23 @@ const outputs = [
 const questions = [
   { title: "What do we need from you?", body: "A business owner, a technical contact, operator feedback and representative examples you are authorised to share. Agree data handling and environment access before any transfer." },
   { title: "What fits in the sprint?", body: "One workflow, one operating team, approved sample data and one prototype environment. Live write integrations, full migration, round-the-clock support and a company-wide rollout require separate scope." },
-  { title: "How do we price it?", body: "We agree a fixed fee and written scope before work starts. Model and third-party costs, ownership and delivery conditions are stated in the proposal." },
+  { title: "How do we price it?", body: "A fixed fee of €7,500, excluding VAT, with a written scope agreed before work starts. Model and third-party costs, ownership and delivery conditions are stated in the proposal." },
   { title: "What happens after ten days?", body: "You receive the work and a recommendation. A production pilot proceeds only with an agreed owner, integration scope, acceptance criteria and budget. If the workflow is a poor fit, the findings should say so." },
 ];
 
 export default function WorkflowSprintPage() {
   return <>
-    <JsonLd data={[breadcrumbGraph(sitePages.aiWorkflowSprint), serviceGraph(sitePages.aiWorkflowSprint, "AI workflow prototype and production plan"), faqGraph(sitePages.aiWorkflowSprint, questions)]} />
+    <JsonLd data={[breadcrumbGraph(sitePages.aiWorkflowSprint), serviceGraph(sitePages.aiWorkflowSprint, "AI workflow prototype and production plan", {
+      "@type": "Offer",
+      price: "7500",
+      priceCurrency: "EUR",
+      priceSpecification: { "@type": "PriceSpecification", price: "7500", priceCurrency: "EUR", valueAddedTaxIncluded: false },
+      url: "https://metasvit.io/ai-workflow-sprint",
+    }), faqGraph(sitePages.aiWorkflowSprint, questions)]} />
     <section className="page-intro"><div className="shell">
       <h1 className="page-title">Your first useful AI workflow.</h1>
       <p className="page-lead">Ten working days to turn one repeated process into a tested prototype and a clear production decision.</p>
+      <p className="page-lead" style={{ fontSize: 14 }}>Fixed fee: €7,500, excluding VAT.</p>
       <div className="content-actions flex flex-wrap gap-3"><Button href="/contact">Discuss a workflow sprint</Button><Button href="/workflow-demo" variant="secondary">Try the operations demo</Button></div>
     </div></section>
     <section className="content-section"><div className="shell">

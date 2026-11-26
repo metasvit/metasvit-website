@@ -19,6 +19,7 @@ export type SitePage = { path: string; title: string; description: string; index
 export const sitePages = {
   services: { path: "/services", title: "AI Transformation & Engineering Services", description: "AI transformation, embedded forward-deployed engineers, agents and systems integration. Practical services from workflow discovery to production and adoption.", indexed: true },
   forwardDeployedEngineering: { path: "/forward-deployed-engineering", title: "Forward-Deployed Engineers for AI Transformation", description: "MetaSvit embeds senior engineers with your team to discover valuable workflows, build AI integrations, deploy into production and develop your own AI capability.", indexed: true },
+  aiVisibility: { path: "/ai-visibility", title: "AI Visibility: SEO and GEO", description: "Be found in search and named correctly by ChatGPT, Claude, Gemini and Perplexity. A two-week audit with fixes, then weekly measurement, from MetaSvit.", indexed: true },
   aiWorkflowSprint: { path: "/ai-workflow-sprint", title: "AI Workflow Sprint", description: "A ten-working-day engagement to map one business workflow, build a bounded prototype and agree an evidence-based production plan with MetaSvit.", indexed: true },
   work: { path: "/work", title: "Production Engineering Track Record", description: "Selected Metasvit projects: XRPL wallets and KYC gateways, Unity GameFi clients, DEX routing engines, NFT minting dApps and autonomous agents.", indexed: true },
   about: { path: "/about", title: "Senior Engineers for AI Transformation", description: "Meet MetaSvit: senior engineering, architecture and delivery specialists helping businesses adopt AI through embedded forward-deployed engineering.", indexed: true },
@@ -102,7 +103,7 @@ export function faqGraph(page: SitePage, questions: QuestionAndAnswer[]) {
 }
 
 /** A service offered on its own page, named and described in the page's own words. */
-export function serviceGraph(page: SitePage, serviceType: string) {
+export function serviceGraph(page: SitePage, serviceType: string, offers?: Record<string, unknown> | Record<string, unknown>[]) {
   const url = new URL(page.path, siteUrl).href;
   return {
     "@context": "https://schema.org",
@@ -113,6 +114,7 @@ export function serviceGraph(page: SitePage, serviceType: string) {
     description: page.description,
     url,
     provider: { "@id": organizationId },
+    ...(offers ? { offers } : {}),
   };
 }
 
