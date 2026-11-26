@@ -1,9 +1,10 @@
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbGraph, pageMetadata, sitePages } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { transformationServices, engineeringServices, type Service } from "@/lib/services";
 
-export const metadata = pageMetadata("/services", "AI Transformation & Engineering Services", "AI transformation, embedded forward-deployed engineers, agents and systems integration. Practical services from workflow discovery to production and adoption.");
+export const metadata = pageMetadata(sitePages.services);
 
 function ServiceDetails({ service }: { service: Service }) {
   return <article id={service.slug} aria-labelledby={`${service.slug}-title`} className="service-detail">
@@ -19,6 +20,7 @@ function ServiceDetails({ service }: { service: Service }) {
 
 export default function ServicesPage() {
   return <>
+    <JsonLd data={[breadcrumbGraph(sitePages.services)]} />
     <section className="page-intro services-intro"><div className="shell">
       <h1 className="page-title">Make AI work in your business.</h1>
       <p className="page-lead">A practical path from the first useful workflow to a capability your company can operate and grow.</p>
