@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "MetaSvit | AI Transformation & Forward-Deployed Engineers",
-    template: "%s | Metasvit",
+    template: "%s | MetaSvit",
   },
   description: siteDescription,
   alternates: { canonical: siteUrl },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "MetaSvit | AI Transformation & Forward-Deployed Engineers",
     description: siteDescription,
     url: siteUrl,
-    siteName: "Metasvit",
+    siteName: "MetaSvit",
     locale: "en_US",
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "MetaSvit — AI transformation and forward-deployed engineering" }],

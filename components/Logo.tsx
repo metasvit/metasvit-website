@@ -1,4 +1,4 @@
-/** The Metasvit mark: two linked loops crossed at the centre. Inherits currentColor. */
+/** The MetaSvit mark: two linked loops crossed at the centre. Inherits currentColor. */
 export function LogoMark({
   size = 32,
   className = "",
@@ -41,7 +41,7 @@ export default function Logo({
       <LogoMark size={size} className="text-violet-bright" />
       {showText && (
         <span className="text-[17px] font-semibold tracking-[-0.03em] text-ink">
-          Metasvit
+          MetaSvit
         </span>
       )}
     </span>
