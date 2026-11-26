@@ -34,15 +34,15 @@ export function pageMetadata(page: SitePage): Metadata {
     description,
     alternates: { canonical: url },
     openGraph: {
-      title: `${title} | Metasvit`,
+      title: `${title} | MetaSvit`,
       description,
       url,
-      siteName: "Metasvit",
+      siteName: "MetaSvit",
       locale: "en_US",
       type: "website",
       images: [{ url: `${siteUrl}/opengraph-image`, width: 1200, height: 630, alt: "MetaSvit — AI transformation and forward-deployed engineering" }],
     },
-    twitter: { card: "summary_large_image", title: `${title} | Metasvit`, description, images: [`${siteUrl}/opengraph-image`] },
+    twitter: { card: "summary_large_image", title: `${title} | MetaSvit`, description, images: [`${siteUrl}/opengraph-image`] },
   };
 }
 
@@ -56,7 +56,8 @@ export const organizationGraph = {
       alternateName: "Metasvit",
       url: siteUrl,
       description: siteDescription,
-      email: "ruslan@metasvit.io",
+      email: "hello@metasvit.io",
+      parentOrganization: { "@type": "Organization", "@id": "https://cryptosvit.xyz/#organization", name: "CryptoSvit", url: "https://cryptosvit.xyz/" },
       knowsAbout: capabilities,
       sameAs: ["https://github.com/metasvit", "https://www.linkedin.com/company/metasvit-ai/"],
     },
