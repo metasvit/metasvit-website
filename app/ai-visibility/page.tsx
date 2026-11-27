@@ -19,25 +19,11 @@ const questions = [
 
 export default function AiVisibilityPage() {
   return <>
-    <JsonLd data={[breadcrumbGraph(sitePages.aiVisibility), serviceGraph(sitePages.aiVisibility, "SEO and generative engine optimisation", [
-      {
-        "@type": "Offer",
-        name: "Audit and fixes",
-        price: "2500",
-        priceCurrency: "EUR",
-        priceSpecification: { "@type": "PriceSpecification", price: "2500", priceCurrency: "EUR", valueAddedTaxIncluded: false },
-      },
-      {
-        "@type": "Offer",
-        name: "Monthly visibility",
-        priceCurrency: "EUR",
-        priceSpecification: { "@type": "UnitPriceSpecification", minPrice: "1250", priceCurrency: "EUR", unitCode: "MON", valueAddedTaxIncluded: false },
-      },
-    ]), faqGraph(sitePages.aiVisibility, questions)]} />
+    <JsonLd data={[breadcrumbGraph(sitePages.aiVisibility), serviceGraph(sitePages.aiVisibility, "SEO and generative engine optimisation"), faqGraph(sitePages.aiVisibility, questions)]} />
     <section className="page-intro"><div className="shell">
       <h1 className="page-title">Be found, and named correctly by AI.</h1>
       <p className="page-lead">People now ask ChatGPT, Gemini and Perplexity which company to choose. We check what they say about you, fix what search engines and assistants read on your site, and measure the change every week.</p>
-      <p className="page-lead" style={{ fontSize: 14 }}>Audit and fixes: €2,500. Then from €1,250 a month. Excluding VAT.</p>
+      <p className="page-lead" style={{ fontSize: 14 }}>A fixed-fee audit, then a monthly plan. Ask for a proposal: <a className="text-link" href="mailto:hello@metasvit.io">hello@metasvit.io</a></p>
       <div className="content-actions flex flex-wrap gap-3"><Button href="/contact">Ask for an audit</Button><Button href="/forward-deployed-engineering" variant="secondary">How we deliver</Button></div>
     </div></section>
     <section className="content-section"><div className="shell">
@@ -47,8 +33,8 @@ export default function AiVisibilityPage() {
     <section className="content-section agent-section"><div className="shell">
       <h2 className="section-title">Two steps.</h2>
       <ol className="process-list">
-        <li className="process-row"><h3>Weeks 1–2</h3><p>Audit, fixes and a baseline: where you are named today, where you are not, and which pages assistants link to.</p><small>€2,500 fixed fee</small></li>
-        <li className="process-row"><h3>Every month</h3><p>Weekly measurement, two new answer pages and a short report on what changed.</p><small>From €1,250 a month</small></li>
+        <li className="process-row"><h3>Weeks 1–2</h3><p>Audit, fixes and a baseline: where you are named today, where you are not, and which pages assistants link to.</p><small>Fixed fee</small></li>
+        <li className="process-row"><h3>Every month</h3><p>Weekly measurement, two new answer pages and a short report on what changed.</p><small>Monthly plan</small></li>
       </ol>
       <p className="section-lead" style={{ marginTop: 32 }}>We use the same method on our own sites. We do not buy links, post reviews we did not earn or publish AI-written pages unread, and we do not promise rankings.</p>
     </div></section>
